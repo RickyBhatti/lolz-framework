@@ -6,3 +6,6 @@ I have no clue if I'll end up finishing this framework, what it's going to be de
 
 ## What is this?
 As I mentioned above, it's going to hopefully be a completed framework for FiveM at some time. What specifically will the framework do? Not sure yet. I know I'm not designing it around the roleplay aspect, I want to make something modular, that you can work with to turn it into whatever. So, it'll be more like a core that has a bunch of utilities. Oh, so I guess this is the "lolz-core."
+
+## Oh you're trying to replace X framework?
+No, I really don't care to replace whatever framework you think I'm trying to replace. I'm just a developer who wants to make this for fun. If people end up using it, cool. If not, cool.
