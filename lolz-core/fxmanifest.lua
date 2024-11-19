@@ -8,13 +8,16 @@ author "ricky"
 version "0.0.0"
 
 shared_scripts {
+    "shared/sh_main.lua",
     "**/sh_*.lua"
 }
 
 client_scripts {
+    "client/cl_main.lua",
     "**/cl_*.lua"
 }
 
 server_scripts {
+    "server/sv_main.lua",
     "**/sv_*.lua"
 }
