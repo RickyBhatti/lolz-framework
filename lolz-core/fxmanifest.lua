@@ -9,14 +9,17 @@ version "0.0.0"
 
 shared_scripts {
     "config.lua",
+    "shared/__sh__init.lua",
     "shared/sh_main.lua",
     "shared/sh_logging.lua"
 }
 
 client_scripts {
+    "client/__cl__init.lua",
     "client/cl_main.lua"
 }
 
 server_scripts {
+    "server/__sv__init.lua",
     "server/sv_main.lua"
 }

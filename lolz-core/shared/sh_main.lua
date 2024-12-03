@@ -1,1 +1,0 @@
-lolz = lolz or {}
