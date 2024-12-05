@@ -23,3 +23,7 @@ server_scripts {
     "server/__sv__init.lua",
     "server/sv_main.lua"
 }
+
+dependencies {
+    "oxmysql"
+}
