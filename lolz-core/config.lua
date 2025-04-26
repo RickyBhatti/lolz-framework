@@ -1,1 +1,0 @@
-lolzconfig = {}
