@@ -9,12 +9,12 @@ local DEBUG_FORMAT = ("[DEBUG: %s] %s: %s^7"):format(RESOURCE_NAME, "%s", "%s") 
 local print = print
 local format = string.format
 
-function lolz.log(module, log)
+function lolz.log(component, log)
     if not LOGS_ENABLED then return end
-    print(format(LOG_FORMAT, module, log))
+    print(format(LOG_FORMAT, component, log))
 end
 
-function lolz.debug(module, log)
+function lolz.debug(component, log)
     if not DEBUG_MODE then return end
-    print(format(DEBUG_FORMAT, module, log))
+    print(format(DEBUG_FORMAT, component, log))
 end
