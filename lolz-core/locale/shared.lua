@@ -16,26 +16,50 @@ function lang:get(key, ...)
 
 end
 
-local LANG_CODES = {
-    [0] = "en", -- en-US, English (United States)
-    [1] = "fr", -- fr-FR, French (France)
-    [2] = "de", -- de-DE, German (Germany)
-    [3] = "it", -- it-IT, Italian (Italy)
-    [4] = "es", -- es-ES, Spanish (Spain)
-    [5] = "pt", -- pt-BR, Portuguese (Brazil)
-    [6] = "pl", -- pl-PL, Polish (Poland)
-    [7] = "ru", -- ru-RU, Russian (Russia)
-    [8] = "ko", -- ko-KR, Korean (South Korea)
-    [9] = "zh", -- zh-TW, Chinese (Taiwan)
-    [10] = "ja", -- ja-JP, Japanese (Japan)
-    [11] = "es", -- es-MX, Spanish (Mexico)
-    [12] = "zh" -- zh-CN, Chinese (China)
+local LANG_CODES_CLIENT = {
+    [0] = "en-US",
+    [1] = "fr-FR",
+    [2] = "de-DE",
+    [3] = "it-IT",
+    [4] = "es-ES",
+    [5] = "pt-BR",
+    [6] = "pl-PL",
+    [7] = "ru-RU",
+    [8] = "ko-KR",
+    [9] = "zh-TW",
+    [10] = "ja-JP",
+    [11] = "es-MX",
+    [12] = "zh-CN"
 }
 
+local LANG_CODES = {
+    ["en-US"] = "en",
+    ["fr-FR"] = "fr",
+    ["de-DE"] = "de",
+    ["it-IT"] = "it",
+    ["es-ES"] = "es",
+    ["pt-BR"] = "pt",
+    ["pl-PL"] = "pl",
+    ["ru-RU"] = "ru",
+    ["ko-KR"] = "ko",
+    ["zh-TW"] = "zh-TW",
+    ["ja-JP"] = "ja",
+    ["es-MX"] = "es-MX",
+    ["zh-CN"] = "zh-CN"
+}
+
+local activeLang = "en" -- Default to "en" if no locale is set
 if IsDuplicityVersion() then
     -- Server-side
+    activeLang = LANG_CODES[GetConvar("locale", "en-US")]
 else 
     -- Client-side
-    local activeLang = LANG_CODES[GetCurrentLanguage()] or "en"
-    print(("Locale set to: %s"):format(activeLang))
+    activeLang = LANG_CODES[LANG_CODES_CLIENT[GetCurrentLanguage() or 0]] -- Default to "en-US" if GetCurrentLanguage() returns nil
 end
+
+print(("Locale set to: %s"):format(activeLang))
+-- Load the language file based on the active language
+local langFile = ("lolz-core/locale/%s.lua"):format(activeLang)
+
+-- Might change how this exactly works. Might mount all the languages and then just load the one that is set in the config (or like how we have it above). Feel like that'd make more sense and lets them be able to swap languages without restarting the resource.
+-- Just writing code as it comes to me. As they say: Make it work, then make it right, then make it fast.

@@ -8,6 +8,7 @@ author "ricky"
 version "0.0.0"
 
 shared_scripts {
+    "locale/*.lua",
     "sh_config.lua",
     "shared/__sh__init.lua",
     "shared/sh_logging.lua"
