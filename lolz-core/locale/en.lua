@@ -1,4 +1,4 @@
-local lang = {
+local LANG = {
     name = "English",
     locale = "en-US",
     dict = {

@@ -45,5 +45,7 @@ print(("Locale set to: %s"):format(activeLang))
 -- Load the language file based on the active language
 local langFile = ("lolz-core/locale/%s.lua"):format(activeLang)
 
+-- load file, get locale, mount it. add name and then dict to table.
+
 -- Might change how this exactly works. Might mount all the languages and then just load the one that is set in the config (or like how we have it above). Feel like that'd make more sense and lets them be able to swap languages without restarting the resource.
 -- Just writing code as it comes to me. As they say: Make it work, then make it right, then make it fast.
