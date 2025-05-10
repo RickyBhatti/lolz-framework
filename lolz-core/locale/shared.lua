@@ -16,7 +16,7 @@ function lang:get(key, ...)
 
 end
 
-local LANG_CODES_CLIENT = {
+local LANG_CODES_CLIENT = { -- Removed the conversion to the "en.lua." Think of how to mount the files, so that the en.lua is mounted as en-US.
     [0] = "en-US",
     [1] = "fr-FR",
     [2] = "de-DE",
@@ -32,29 +32,13 @@ local LANG_CODES_CLIENT = {
     [12] = "zh-CN"
 }
 
-local LANG_CODES = {
-    ["en-US"] = "en",
-    ["fr-FR"] = "fr",
-    ["de-DE"] = "de",
-    ["it-IT"] = "it",
-    ["es-ES"] = "es",
-    ["pt-BR"] = "pt",
-    ["pl-PL"] = "pl",
-    ["ru-RU"] = "ru",
-    ["ko-KR"] = "ko",
-    ["zh-TW"] = "zh-TW",
-    ["ja-JP"] = "ja",
-    ["es-MX"] = "es-MX",
-    ["zh-CN"] = "zh-CN"
-}
-
 local activeLang = "en" -- Default to "en" if no locale is set
 if IsDuplicityVersion() then
     -- Server-side
-    activeLang = LANG_CODES[GetConvar("locale", "en-US")]
+    activeLang = GetConvar("locale", "en-US")
 else 
     -- Client-side
-    activeLang = LANG_CODES[LANG_CODES_CLIENT[GetCurrentLanguage() or 0]] -- Default to "en-US" if GetCurrentLanguage() returns nil
+    activeLang = LANG_CODES_CLIENT[GetCurrentLanguage() or 0] -- Default to "en-US" if GetCurrentLanguage() returns nil
 end
 
 print(("Locale set to: %s"):format(activeLang))

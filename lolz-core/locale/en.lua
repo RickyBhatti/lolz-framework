@@ -1,6 +1,6 @@
 local lang = {
     name = "English",
-    locale = "en",
+    locale = "en-US",
     dict = {
         ["hello"] = "Hello, world!",
         ["welcome"] = "Welcome to the server!",
