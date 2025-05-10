@@ -15,4 +15,3 @@ local LANG = {
         ["saving_complete"] = "Saving complete!",
     }
 }
-

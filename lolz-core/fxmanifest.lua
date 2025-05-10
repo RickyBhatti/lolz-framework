@@ -11,8 +11,8 @@ shared_scripts {
     "locale/*.lua",
     "sh_config.lua",
     "shared/__sh__init.lua",
-    "shared/sh_logging.lua"
-    "shared/sh_main.lua",
+    "shared/sh_logging.lua",
+    "shared/sh_main.lua"
 }
 
 client_scripts {
