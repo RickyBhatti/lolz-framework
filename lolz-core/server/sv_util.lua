@@ -1,3 +1,10 @@
+local sub = string.sub
+local find = string.find
+
+local GetPlayerIdentifiers = GetPlayerIdentifiers
+
+local playerIdentifiersCache = {}
+
 --[[
     Sends a message to the given player(s).
     @param players (number|table) - The player ID or a table of player IDs
@@ -34,4 +41,32 @@ end
 function lolz.server.getPlayerInfo(player)
     -- TODO: Implement database retrieval logic. This is a placeholder function for now.
     return {}
+end
+
+--[[
+    Get a list of all player identifiers.
+    @param player (number) - The player ID
+    @return (table) - A table of the player's identifiers
+]]--
+function lolz.server.getPlayerIdentifiers(player)
+    if playerIdentifiersCache[player] then
+        return playerIdentifiersCache[player]
+    end
+
+    local playerIdentifiers = GetPlayerIdentifiers(player)
+    if not playerIdentifiers then
+        -- TODO: Log that we couldn't get identifiers for some reason.
+        return identifiers
+    end
+
+    local identifiers = {}
+    for i = 1, #playerIdentifiers do
+        local identifier = playerIdentifiers[i]
+        local identifierType = sub(identifier, 1, find(identifier, ":") - 1) -- 1 to the character before the colon
+        identifiers[identifierType] = identifier
+    end
+
+    playerIdentifiersCache[player] = identifiers
+
+    return identifiers
 end
