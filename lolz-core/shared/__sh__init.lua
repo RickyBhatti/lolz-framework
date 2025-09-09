@@ -1,1 +1,1 @@
-lolz = lolz or {}
+lolz = lolz or {} -- maybe do some metatable stuff later. feel like there will be somethings that will be useful to have globally available (like at the lolz namespace level) but idk what those things are yet. so for now, just an empty table.
