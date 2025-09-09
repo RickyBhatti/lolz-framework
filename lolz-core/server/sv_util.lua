@@ -1,6 +1,7 @@
 local sub = string.sub
 local find = string.find
 
+local DropPlayer = DropPlayer
 local GetPlayerIdentifiers = GetPlayerIdentifiers
 
 local playerIdentifiersCache = {}
@@ -53,13 +54,13 @@ function lolz.server.getPlayerIdentifiers(player)
         return playerIdentifiersCache[player]
     end
 
+    local identifiers = {}
     local playerIdentifiers = GetPlayerIdentifiers(player)
     if not playerIdentifiers then
         -- TODO: Log that we couldn't get identifiers for some reason.
         return identifiers
     end
 
-    local identifiers = {}
     for i = 1, #playerIdentifiers do
         local identifier = playerIdentifiers[i]
         local identifierType = sub(identifier, 1, find(identifier, ":") - 1) -- 1 to the character before the colon
