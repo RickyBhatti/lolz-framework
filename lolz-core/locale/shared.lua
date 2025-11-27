@@ -29,7 +29,9 @@ local LANG_CODES_CLIENT = { -- Removed the conversion to the "en.lua." Think of 
     [9] = "zh-TW",
     [10] = "ja-JP",
     [11] = "es-MX",
-    [12] = "zh-CN"
+    [12] = "zh-CN",
+    [13] = "nb-NO",
+    [14] = "nn-NO",
 }
 
 local activeLang = "en" -- Default to "en" if no locale is set
